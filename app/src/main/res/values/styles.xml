@@ -36,32 +36,32 @@
         <!--注意不要用android:titleTextAppearance,
         要用xmlns:app="http://schemas.android.com/apk/res-auto"下的，
         不带前缀就是app:下的-->
-        <!--主标题-->
-        <item name="title">title</item>
-        <!--副标题-->
-        <item name="subtitle">subtitle</item>
+        <!--&lt;!&ndash;主标题&ndash;&gt;-->
+        <!--<item name="title">title</item>-->
+        <!--&lt;!&ndash;副标题&ndash;&gt;-->
+        <!--<item name="subtitle">subtitle</item>-->
 
-        <!--logo-->
-        <item name="logo">@drawable/ic_book</item>
-        <!--主标题样式-->
-        <item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>
-        <!--副标题样式-->
-        <item name="subtitleTextAppearance">@style/Theme.ToolBar.App.Subtitle</item>
+        <!--&lt;!&ndash;logo&ndash;&gt;-->
+        <!--<item name="logo">@drawable/ic_book</item>-->
+        <!--&lt;!&ndash;主标题样式&ndash;&gt;-->
+        <!--<item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>-->
+        <!--&lt;!&ndash;副标题样式&ndash;&gt;-->
+        <!--<item name="subtitleTextAppearance">@style/Theme.ToolBar.App.Subtitle</item>-->
 
-        <item name="android:minHeight">?attr/actionBarSize</item>
-        <!--<item name="titleMargins">4dp</item>-->
-        <item name="titleMarginStart">16dp</item>
-        <item name="titleMarginEnd">16dp</item>
-        <item name="titleMarginTop">4dp</item>
-        <item name="titleMarginBottom">4dp</item>
-        <!--ToolBar的Home图标左侧间隙-->
-        <item name="contentInsetStart">16dp</item>
+        <!--<item name="android:minHeight">?attr/actionBarSize</item>-->
+        <!--&lt;!&ndash;<item name="titleMargins">4dp</item>&ndash;&gt;-->
+        <!--<item name="titleMarginStart">16dp</item>-->
+        <!--<item name="titleMarginEnd">16dp</item>-->
+        <!--<item name="titleMarginTop">4dp</item>-->
+        <!--<item name="titleMarginBottom">4dp</item>-->
+        <!--&lt;!&ndash;ToolBar的Home图标左侧间隙&ndash;&gt;-->
+        <!--<item name="contentInsetStart">16dp</item>-->
 
-        <!--当home图标折叠时显示的图标-->
-        <item name="collapseIcon">@android:drawable/ic_menu_compass</item>
-        <item name="collapseContentDescription">collapseContentDescription</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
+        <!--&lt;!&ndash;当home图标折叠时显示的图标&ndash;&gt;-->
+        <!--<item name="collapseIcon">@android:drawable/ic_menu_compass</item>-->
+        <!--<item name="collapseContentDescription">collapseContentDescription</item>-->
+        <!--<item name="android:paddingLeft">10dp</item>-->
+        <!--<item name="android:paddingRight">10dp</item>-->
 
     </style>
 

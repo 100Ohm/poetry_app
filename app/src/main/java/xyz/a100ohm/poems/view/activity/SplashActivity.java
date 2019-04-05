@@ -51,13 +51,13 @@ public class SplashActivity extends AppCompatActivity {
                         Toast.makeText(SplashActivity.this, "第一次运行",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
-                                MainActivity.class));
+                                GuideActivity.class));
                     } else { //改了
                         //TODO
                         Toast.makeText(SplashActivity.this, "不是第一次运行",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
-                                MainActivity.class));
+                                GuideActivity.class));
                     }
                     finish();
                     break;

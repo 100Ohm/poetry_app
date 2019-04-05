@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    //Bmob接入
+    //**兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'**
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "xyz.a100ohm.poems"
         minSdkVersion 15
@@ -9,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //svg图片支持
+        //vectorDrawables.useSupportLibrary = true
         //腾讯MTA，数据统计sdk接入
         ndk {
             //根据需要 自行选择添加的对应cpu类型的.so库。
@@ -36,6 +42,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //====================MTA接入======================
     //腾讯MTA，数据统计sdk接入
     // mta包稳定版和测试版本二选一，mid包必须要添加 ，可视化埋点根据需要添加
     //mta 3.4.7 稳定版
@@ -44,6 +52,41 @@ dependencies {
     implementation 'com.tencent.mid:mid:4.06-Release'
     //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和必须和当前MTA的版本号必须匹配使用 需要在配置文件中增加配置，具体请参考 高级功能中可视化埋点的接入。
     implementation 'com.qq.visual:visual:3.4.0.1-beta'
+
+    //==================Bugly接入======================
     //腾讯Bugly崩溃捕获(暂时不打算了，MTA也有这个功能)
     //implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+
+    //====================Bomb接入======================
+    //以下SDK开发者请根据需要自行选择
+    //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
+
+    //3.4.7-aar：具务必查看下面注释[1]
+    implementation 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+
+    //bmob-push：Bmob的推送包
+    implementation 'cn.bmob.android:bmob-push:0.8'
+
+    //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[3]
+    implementation 'cn.bmob.android:bmob-im:2.0.4'
+    implementation 'cn.bmob.android:androidasync:2.1.6'
+    implementation 'cn.bmob.android:bmob-sdk:3.4.6'
+    //注：别忘记导入3.4.6的相关依赖包[2]
+
+    //bmob-sms ：Bmob单独为短信服务提供的包
+    implementation 'cn.bmob.android:bmob-sms:1.0.1'
+
+    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    implementation 'cn.bmob.android:http-legacy:1.0'
+
+    //==================Material Design支持库======================
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    //implementation 'com.android.support:gridlayout-v7:28.0.0'
+    //implementation 'com.android.support:mediarouter-v7:28.0.0'
+    //implementation 'com.android.support:palette-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //implementation 'com.android.support:preference-v7:28.0.0'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //implementation 'com.android.support:support-compat:28.0.0'
 }
