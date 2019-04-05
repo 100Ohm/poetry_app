@@ -1,5 +1,6 @@
 <resources>
 
+    <!--=============主页相关主题============-->
     <!-- 主页日间主题. -->
     <style name="AppTheme.Normal" parent="Theme.AppCompat.Light.NoActionBar">
 
@@ -17,6 +18,15 @@
         <item name="android:textSize">20sp</item>
         <!--文本颜色-->
         <item name="android:textColorPrimary">#ffffff</item>
+    </style>
+
+    <!--=============闪屏页相关主题============-->
+    <!--全屏主题-->
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <!--=============下面是toolbar相关主题============-->

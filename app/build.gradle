@@ -44,4 +44,6 @@ dependencies {
     implementation 'com.tencent.mid:mid:4.06-Release'
     //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和必须和当前MTA的版本号必须匹配使用 需要在配置文件中增加配置，具体请参考 高级功能中可视化埋点的接入。
     implementation 'com.qq.visual:visual:3.4.0.1-beta'
+    //腾讯Bugly崩溃捕获(暂时不打算了，MTA也有这个功能)
+    //implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
 }

@@ -12,7 +12,7 @@ package xyz.a100ohm.poems.utils;
  */
 public class StaticMessage {
     //闪屏的消息id
-    //public static final int HANDLE_SPLASH_MSG = 1001;
+    public static final int HANDLE_SPLASH_MSG = 1001;
 
     //判断程序是否第一次运行时，使用的SharePreference的key值
     public static final String SHARE_IS_FIRST = "isFirst";
