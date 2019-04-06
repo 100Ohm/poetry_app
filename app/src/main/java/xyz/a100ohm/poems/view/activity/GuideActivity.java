@@ -26,7 +26,7 @@ import xyz.a100ohm.poems.R;
  * @version v1.0
  * @update [1][19.4.4] [一百欧姆][引导页，初次启动轮转页面]
  */
-public class GuideActivity extends AppCompatActivity {
+public class GuideActivity extends BaseActivity {
 
     //ViewPager
     private ViewPager mViewPager;

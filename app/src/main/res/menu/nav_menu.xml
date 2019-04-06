@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/main_page"
+            android:icon="@drawable/ic_home_gray"/>
+        <item
+            android:id="@+id/nav_poetry_library"
+            android:title="@string/poetry_library"
+            android:icon="@drawable/ic_library_books_gray"/>
+        <item
+            android:id="@+id/nav_person"
+            android:title="@string/personal_center"
+            android:icon="@drawable/ic_person_gray"/>
+        <item
+            android:id="@+id/nav_message"
+            android:title="@string/my_message"
+            android:icon="@drawable/ic_message_gray"/>
+        <item
+            android:id="@+id/nav_poetry_anthology"
+            android:title="@string/my_poetry_anthology"
+            android:icon="@drawable/ic_book_gray"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:title="@string/setting"
+            android:icon="@drawable/ic_settings_gray"/>
+        <item
+            android:id="@+id/nav_help"
+            android:title="@string/help"
+            android:icon="@drawable/ic_help_gray"
+            />
+        <item
+            android:id="@+id/nav_feedback"
+            android:title="@string/feedback"
+            android:icon="@drawable/ic_feedback_gray"/>
+    </group>
+
+</menu>

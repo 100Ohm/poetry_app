@@ -31,11 +31,10 @@ import xyz.a100ohm.poems.utils.UtilTools;
  *            3.自定义字体
  *            4.Acitivity全屏]
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     //Handler
-    private SoftReference<Handler> handler
-            = new SoftReference<Handler>(new MyHandler());
+    private Handler handler = new MyHandler();
 
     //Handler内部类来的，注意内存泄漏
     public class MyHandler extends android.os.Handler {
@@ -90,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
         //1000ms
         Message message = new Message();
         message.what = StaticMessage.HANDLE_SPLASH_MSG;
-        handler.get().sendMessageDelayed(message, 1000);
+        handler.sendMessageDelayed(message, 1000);
         //handler.get().sendEmptyMessageDelayed(StaticClass.HANDLE_SPLASH_MSG, 1000);
     }
 

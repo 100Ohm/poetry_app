@@ -16,6 +16,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:id="@+id/toolbar"
             app:title="@string/app_name">
 
         </android.support.v7.widget.Toolbar>
@@ -23,11 +24,12 @@
     </FrameLayout>
 
     <!--侧滑菜单-->
-    <TextView
+    <android.support.design.widget.NavigationView
+        android:id="@+id/design_nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:text="你好"
-        android:background="@android:color/background_light"/>
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header" />
 
 </android.support.v4.widget.DrawerLayout>

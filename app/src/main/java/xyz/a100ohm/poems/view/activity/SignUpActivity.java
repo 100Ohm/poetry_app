@@ -14,7 +14,7 @@ import xyz.a100ohm.poems.R;
  * @version v1.0
  * @update [1][19.4.4] [一百欧姆][注册页面]
  */
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

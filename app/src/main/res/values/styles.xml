@@ -17,7 +17,7 @@
         <!--文本大小-->
         <item name="android:textSize">20sp</item>
         <!--文本颜色-->
-        <item name="android:textColorPrimary">#ffffff</item>
+        <!--<item name="android:textColorPrimary">#000000</item>-->
     </style>
 
     <!--=============闪屏页相关主题============-->
@@ -27,6 +27,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
     <!--=============下面是toolbar相关主题============-->
@@ -44,9 +45,9 @@
         <!--&lt;!&ndash;logo&ndash;&gt;-->
         <!--<item name="logo">@drawable/ic_book</item>-->
         <!--&lt;!&ndash;主标题样式&ndash;&gt;-->
-        <!--<item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>-->
+        <item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>
         <!--&lt;!&ndash;副标题样式&ndash;&gt;-->
-        <!--<item name="subtitleTextAppearance">@style/Theme.ToolBar.App.Subtitle</item>-->
+        <item name="subtitleTextAppearance">@style/Theme.ToolBar.App.Subtitle</item>
 
         <!--<item name="android:minHeight">?attr/actionBarSize</item>-->
         <!--&lt;!&ndash;<item name="titleMargins">4dp</item>&ndash;&gt;-->

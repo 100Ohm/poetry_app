@@ -14,7 +14,7 @@ import xyz.a100ohm.poems.R;
  * @version v1.0
  * @update [1][19.4.4] [一百欧姆][登陆页面，用户登陆使用]
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

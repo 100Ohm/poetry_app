@@ -16,7 +16,7 @@ public class L {
     //日志开关，打开则表示正在debug，输出日志，发行版则关闭开关
     public static final boolean DEBUG = true;
 
-    public static final String TAG = "Smart Butler";
+    public static final String TAG = "念诗";
 
     //控制日志输出
     public static void d(String text) {
