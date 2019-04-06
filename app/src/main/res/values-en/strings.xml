@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Read the poem</string>
+    <string name="enter">Enter</string>
+    <string name="main_page">Homepage</string>
+    <string name="poetry_library">Poetry library</string>
+    <string name="personal_center">Personal center</string>
+    <string name="my_message">Message</string>
+    <string name="my_poetry_anthology">My poetry</string>
+    <string name="setting">Setting</string>
+    <string name="help">Help</string>
+    <string name="feedback">Feedback</string>
+    <string name="username_normal">Username</string>
+    <string name="night_mode">Night mode</string>
+</resources>

@@ -3,10 +3,12 @@
     <string name="enter">立刻体验</string>
     <string name="main_page">首页</string>
     <string name="poetry_library">诗词库</string>
-    <string name="personal_center">个人中心</string>
+    <string name="personal_center">个人空间</string>
     <string name="my_message">我的消息</string>
     <string name="my_poetry_anthology">我的诗集</string>
     <string name="setting">设置</string>
     <string name="help">帮助</string>
     <string name="feedback">反馈</string>
+    <string name="username_normal">念诗用户</string>
+    <string name="night_mode">日夜模式切换</string>
 </resources>

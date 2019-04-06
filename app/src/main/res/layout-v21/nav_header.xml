@@ -55,7 +55,9 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
-        android:src="@drawable/ic_message_white" />
+        android:src="@drawable/ic_message_white"
+        android:colorControlHighlight="@color/colorPrimaryDark"
+        android:background="?android:attr/selectableItemBackgroundBorderless" />
     <ImageButton
         android:id="@+id/nav_add"
         android:layout_width="30dp"
@@ -63,5 +65,7 @@
         android:layout_toLeftOf="@id/nav_message"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
-        android:src="@drawable/ic_add_white" />
+        android:src="@drawable/ic_add_white"
+        android:colorControlHighlight="@color/colorPrimaryDark"
+        android:background="?android:attr/selectableItemBackgroundBorderless" />
 </RelativeLayout>

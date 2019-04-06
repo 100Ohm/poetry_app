@@ -14,13 +14,13 @@
             android:title="@string/personal_center"
             android:icon="@drawable/ic_person_gray"/>
         <item
-            android:id="@+id/nav_message"
-            android:title="@string/my_message"
-            android:icon="@drawable/ic_message_gray"/>
-        <item
             android:id="@+id/nav_poetry_anthology"
             android:title="@string/my_poetry_anthology"
             android:icon="@drawable/ic_book_gray"/>
+        <item
+            android:id="@+id/nav_night_mode"
+            android:title="@string/night_mode"
+            android:icon="@drawable/ic_brightness_gray"/>
         <item
             android:id="@+id/nav_setting"
             android:title="@string/setting"

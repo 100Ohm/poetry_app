@@ -1,9 +1,13 @@
 package xyz.a100ohm.poems.application;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
 
 import com.tencent.stat.StatConfig;
 import com.tencent.stat.StatService;
+
+import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
+import xyz.a100ohm.poems.view.activity.MainActivity;
 
 /**
  * <p>项目名称: poetry_app </p>

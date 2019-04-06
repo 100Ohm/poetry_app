@@ -7,13 +7,19 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ImageView
+        android:src="@drawable/ic_book"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
     <TextView
         android:id="@+id/tv_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="念詩"
         android:textColor="@android:color/white"
-        android:textSize="50sp"
+        android:textSize="40sp"
+        android:layout_marginTop="10dp"
         app:fontFamily="@font/ke_shi_lu_yan_ti" />
 
 </LinearLayout>
+
