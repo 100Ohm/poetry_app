@@ -24,20 +24,10 @@
             android:fitsSystemWindows="true">
         </android.support.v7.widget.Toolbar>
 
-        <fragment
-            android:id="@+id/main_fragment"
+        <FrameLayout
+            android:id="@+id/main_fragment_framelayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="xyz.a100ohm.poems.view.fragment.MainFragment"/>
-
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/floating_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="bottom|right"-->
-            <!--android:layout_margin="20dp"-->
-            <!--android:src="@drawable/ic_add_white"-->
-            <!--android:fitsSystemWindows="true"/>-->
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

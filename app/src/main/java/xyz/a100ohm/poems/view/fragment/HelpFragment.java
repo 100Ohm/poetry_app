@@ -13,18 +13,18 @@ import xyz.a100ohm.poems.R;
 /**
  * <p>项目名称: poetry_app </p>
  * <p>文件名称: null.java </p>
- * <p>创建时间: 2019/4/7 13:52</p>
+ * <p>创建时间: 2019/4/7 13:57</p>
  * <p>企业信息: 广东工业大学 数字媒体技术专业</p>
  *
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
- * @update [1][2019/4/7] [一百欧姆][诗文集Fragment]
+ * @update [1][2019/4/7] [一百欧姆][帮助Fragment]
  */
-public class LibrayFragment extends Fragment {
+public class HelpFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_libray, container, false);
+        View view = inflater.inflate(R.layout.fragment_help, container, false);
         return view;
     }
 }

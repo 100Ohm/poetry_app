@@ -11,4 +11,7 @@
     <string name="feedback">反饋</string>
     <string name="username_normal">念詩用戶</string>
     <string name="night_mode">日夜模式切換</string>
+    <string name="tab_every_day">"每日壹句 "</string>
+    <string name="tab_comment">詩文評</string>
+    <string name="tab_creation">作詩</string>
 </resources>

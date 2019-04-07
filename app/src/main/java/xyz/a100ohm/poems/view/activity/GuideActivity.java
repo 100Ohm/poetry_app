@@ -5,9 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -49,7 +47,7 @@ public class GuideActivity extends BaseActivity {
 
     //初始化View
     private void initView() {
-        mViewPager = findViewById(R.id.mViewPager);
+        mViewPager = findViewById(R.id.guide_viewPager);
 
         view1 = View.inflate(this, R.layout.pager_item_one, null);
         view2 = View.inflate(this, R.layout.pager_item_two, null);

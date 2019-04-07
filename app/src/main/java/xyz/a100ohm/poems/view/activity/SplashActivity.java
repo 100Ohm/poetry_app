@@ -46,13 +46,13 @@ public class SplashActivity extends BaseActivity {
                         .HANDLE_SPLASH_MSG:
                     //判断程序是否是第一次运行
                     if(isFirst()) {
-                        //TODO
+                        // TODO: 2019/4/7  
                         Toast.makeText(SplashActivity.this, "第一次运行",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
                                 GuideActivity.class));
                     } else { //改了
-                        //TODO
+                        // TODO: 2019/4/7  
                         Toast.makeText(SplashActivity.this, "不是第一次运行",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,

@@ -11,4 +11,7 @@
     <string name="feedback">Feedback</string>
     <string name="username_normal">Username</string>
     <string name="night_mode">Night mode</string>
+    <string name="tab_every_day">"Daily sentence "</string>
+    <string name="tab_comment">Poetry review</string>
+    <string name="tab_creation">Poetize</string>
 </resources>

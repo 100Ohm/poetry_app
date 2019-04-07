@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class MainFragment extends Fragment {
 
     //Fragment
     private List<Fragment> mFragment;
+
+    //SwipeRefreshLayout
+    //private SwipeRefreshLayout swipeRefreshLayout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,30 +71,39 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        mTabLayout = getActivity().findViewById(R.id.mTabLayout);
-        mViewPager = getActivity().findViewById(R.id.mViewPager);
-
+        mTabLayout = getActivity().findViewById(R.id.main_TabLayout);
+        mViewPager = getActivity().findViewById(R.id.main_viewPager);
+//        swipeRefreshLayout = getActivity().findViewById(R.id.swipe_refresh);
+//        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
+//
+//        //下拉刷新
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                refreshView();
+//            }
+//        });
         //预加载
         mViewPager.setOffscreenPageLimit(mFragment.size());
         //view pager滑动监听
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {}
-
-//            @SuppressLint("RestrictedApi")
-            @Override
-            public void onPageSelected(int i) {
-//                if(i == 0){
-//                    //为什么会有错误提示
-//                    mFloatingActionButton.setVisibility(View.GONE);
-//                } else {
-//                    mFloatingActionButton.setVisibility(View.VISIBLE);
-//                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {}
-        });
+//        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int i, float v, int i1) {}
+//
+////            @SuppressLint("RestrictedApi")
+//            @Override
+//            public void onPageSelected(int i) {
+////                if(i == 0){
+////                    //为什么会有错误提示
+////                    mFloatingActionButton.setVisibility(View.GONE);
+////                } else {
+////                    mFloatingActionButton.setVisibility(View.VISIBLE);
+////                }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int i) {}
+//        });
 
 
         //设置适配器
@@ -116,4 +129,23 @@ public class MainFragment extends Fragment {
         //绑定
         mTabLayout.setupWithViewPager(mViewPager);
     }
+
+//    private void refreshView() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        swipeRefreshLayout.setRefreshing(false);
+//                    }
+//                });
+//            }
+//        }).start();
+//    }
 }

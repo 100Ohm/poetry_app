@@ -14,7 +14,7 @@
             android:title="@string/personal_center"
             android:icon="@drawable/ic_person_gray"/>
         <item
-            android:id="@+id/nav_poetry_anthology"
+            android:id="@+id/nav_my_poetry_anthology"
             android:title="@string/my_poetry_anthology"
             android:icon="@drawable/ic_book_gray"/>
         <item
