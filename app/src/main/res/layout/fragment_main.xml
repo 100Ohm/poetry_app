@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--设置之后下拉刷新就不会覆盖tablayout，可以用来监听里面控件的滑动-->
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!--tab选项卡布局-->
-        <!--app:layout_scrollFlags="scroll|enterAlways|snap"让它在上划的时候隐藏？-->
         <android.support.design.widget.TabLayout
             android:id="@+id/main_TabLayout"
             android:background="@color/colorNav"
@@ -23,33 +17,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </android.support.design.widget.AppBarLayout>
-
-    <!--&lt;!&ndash;下拉刷新布局&ndash;&gt;-->
-    <!--<android.support.v4.widget.SwipeRefreshLayout-->
-        <!--android:id="@+id/swipe_refresh"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
     <!--tab对应的viewpager-->
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_viewPager"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floating_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_add_white"
-        android:fitsSystemWindows="true"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_add_white"
+            android:fitsSystemWindows="true"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    </FrameLayout>
+
+</LinearLayout>
 

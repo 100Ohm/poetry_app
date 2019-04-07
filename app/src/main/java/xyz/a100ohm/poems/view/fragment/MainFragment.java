@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.utils.L;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -50,12 +51,24 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        L.d("create"+this);
         //初始化数据
         initData();
         //初始化View对象等
         initView();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        L.d(""+this);
+//
+//        //初始化数据
+//        initData();
+//        //初始化View对象等
+//        initView();
     }
 
     private void initData() {
@@ -71,8 +84,8 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        mTabLayout = getActivity().findViewById(R.id.main_TabLayout);
-        mViewPager = getActivity().findViewById(R.id.main_viewPager);
+        mTabLayout = getView().findViewById(R.id.main_TabLayout);
+        mViewPager = getView().findViewById(R.id.main_viewPager);
 //        swipeRefreshLayout = getActivity().findViewById(R.id.swipe_refresh);
 //        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
 //
@@ -107,7 +120,7 @@ public class MainFragment extends Fragment {
 
 
         //设置适配器
-        mViewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+        mViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             //选中的item
             @Override
             public Fragment getItem(int i) {
@@ -148,4 +161,5 @@ public class MainFragment extends Fragment {
 //            }
 //        }).start();
 //    }
+
 }

@@ -1,5 +1,6 @@
 package xyz.a100ohm.poems.view.activity;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -73,7 +74,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
 
         //初始fragment设置为MainFragment
-        replaceFragment(new MainFragment());
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_fragment_framelayout, new MainFragment());
+        transaction.commit();
     }
 
     private void initView() {
