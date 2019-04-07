@@ -18,7 +18,8 @@
         <!--登录页-->
         <activity android:name=".view.activity.LoginActivity" />
         <!--向导页-->
-        <activity android:name=".view.activity.GuideActivity" />
+        <activity android:name=".view.activity.GuideActivity"
+            android:theme="@style/AppTheme.Splash"/>
         <!--启动闪屏页-->
         <activity
             android:name=".view.activity.SplashActivity"

@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#3E6CA6</color>
     <color name="colorPrimaryDark">#294E79</color>
-    <color name="colorAccent">#E6CD9D</color>
-    <color name="colorWindowBackground">#FFFFFF</color>
-    <color name="colorTextColor">#DE000000</color>
+    <color name="colorAccent">#ECB751</color>
+    <color name="colorNav">@color/colorPrimary</color>
 </resources>

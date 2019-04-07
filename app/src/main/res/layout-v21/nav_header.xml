@@ -2,14 +2,15 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="200dp"
     android:padding="10dp"
-    android:background="?attr/colorPrimary">
+    android:background="@color/colorNav">
+    <!--头像昵称等-->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
-
+        android:layout_marginTop="35dp">
+        <!--头像-->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,13 +21,14 @@
                 android:id="@+id/icon_image"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/th"
+                android:src="@drawable/head_portrait"
                 android:layout_centerInParent="true"/>
+
             <ImageView
                 android:layout_width="83dp"
                 android:layout_height="83dp"
-                android:src="@drawable/ic_head_rounding"
-                android:layout_centerInParent="true"/>
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_head_rounding" />
         </RelativeLayout>
         <TextView
             android:id="@+id/username"
@@ -54,9 +56,8 @@
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/ic_message_white"
-        android:colorControlHighlight="@color/colorPrimaryDark"
         android:background="?android:attr/selectableItemBackgroundBorderless" />
     <ImageButton
         android:id="@+id/nav_add"
@@ -64,8 +65,7 @@
         android:layout_height="30dp"
         android:layout_toLeftOf="@id/nav_message"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/ic_add_white"
-        android:colorControlHighlight="@color/colorPrimaryDark"
         android:background="?android:attr/selectableItemBackgroundBorderless" />
 </RelativeLayout>

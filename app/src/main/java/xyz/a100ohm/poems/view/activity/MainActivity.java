@@ -21,6 +21,7 @@ import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
  * @update [1][2019.4.4] [一百欧姆][应用主要页面]
+ * [2][2019.4.6] [一百欧姆][增加了夜间模式的设置]
  */
 
 public class MainActivity extends BaseActivity {
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                // TODO: 2019/4/7  
+                // TODO: 2019/4/7
                 switch (menuItem.getItemId()){
                     case R.id.nav_night_mode://夜间模式
                         boolean night = SharedPreferencesUtils.getBoolean(MainActivity.this, "NightMode", false);
@@ -72,6 +73,14 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
         });
+
+        //日间夜间模式切换
+        boolean night = SharedPreferencesUtils.getBoolean(MainActivity.this, "NightMode", false);
+        if(night) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
     }
 

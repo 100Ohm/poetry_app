@@ -3,19 +3,12 @@
     <!--=============主页相关主题============-->
     <!-- 主页日间主题. -->
     <style name="AppTheme.Normal" parent="Theme.AppCompat.Light.NoActionBar">
-
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--<item name="android:windowBackground">@color/colorWindowBackground</item>-->
-        <!--<item name="android:textColor">@color/colorTextColor</item>-->
 
         <!-- Toolbar风格 -->
         <item name="toolbarStyle">@style/Theme.Toolbar.App.Style</item>
-        <!--文本大小-->
-        <!--<item name="android:textSize">20sp</item>-->
-        <!--文本颜色-->
-        <!--<item name="android:textColorPrimary">#000000</item>-->
     </style>
 
     <!--=============闪屏页相关主题============-->
@@ -31,8 +24,7 @@
     <!--=============下面是toolbar相关主题============-->
     <!-- Toolbar样式 -->
     <style name="Theme.Toolbar.App.Style" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="android:background">@color/colorPrimary</item>
-
+        <item name="android:background">@color/colorNav</item>
         <item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>
     </style>
 
