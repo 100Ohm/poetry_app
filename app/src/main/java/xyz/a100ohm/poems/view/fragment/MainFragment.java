@@ -53,22 +53,11 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        L.d("create"+this);
         //初始化数据
         initData();
         //初始化View对象等
         initView();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        L.d(""+this);
-//
-//        //初始化数据
-//        initData();
-//        //初始化View对象等
-//        initView();
+        L.d("init MainFragment View :"+this);
     }
 
     private void initData() {

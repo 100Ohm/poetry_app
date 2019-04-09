@@ -13,7 +13,7 @@ import android.widget.TextView;
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
  * @update [1][2019/4/5] [一百欧姆][一些简便工具的封装]
- * [2][2019/4/5] [一百欧姆][增加了设置字体的简便方法，又注释掉了]
+ * [2][2019/4/5] [一百欧姆][增加了设置字体的简便方法，又注释掉了，因为换了个方法来做这个]
  */
 public class UtilTools {
 //    public static void setFonts(Context context, TextView textView) {

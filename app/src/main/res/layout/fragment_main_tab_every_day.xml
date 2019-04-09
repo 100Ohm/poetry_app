@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1" />
-</LinearLayout>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?android:windowBackground">
+
+    <!--<include layout="@layout/cardview_poetry"/>-->
+    <xyz.a100ohm.poems.view.customview.PoetryCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--<include-->
+            <!--android:id="@+id/child_1"-->
+            <!--layout="@layout/cardview_poetry" />-->
+        <!--<include-->
+            <!--android:id="@+id/child_2"-->
+            <!--layout="@layout/cardview_poetry" />-->
+        <!--<include-->
+            <!--android:id="@+id/child_3"-->
+            <!--layout="@layout/cardview_poetry" />-->
+    </xyz.a100ohm.poems.view.customview.PoetryCardView>
+
+</FrameLayout>

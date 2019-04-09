@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#414452</color>
     <color name="colorAccent">#4C84CA</color>
     <color name="colorNav">#414452</color>
+    <color name="colorCardBackground">#868686</color>
 </resources>

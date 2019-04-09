@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#294E79</color>
     <color name="colorAccent">#ECB751</color>
     <color name="colorNav">@color/colorPrimary</color>
+    <color name="colorCardBackground">#FFFFFF</color>
 </resources>

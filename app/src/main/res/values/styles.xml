@@ -18,7 +18,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorNav</item>
     </style>
 
     <!--=============下面是toolbar相关主题============-->

@@ -14,4 +14,5 @@
     <string name="tab_every_day">"Daily sentence "</string>
     <string name="tab_comment">Poetry review</string>
     <string name="tab_creation">Poetize</string>
+    <string name="daytime_mode">Daytime mode</string>
 </resources>
