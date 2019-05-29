@@ -1,5 +1,4 @@
 <resources>
-
     <!--=============主页相关主题============-->
     <!-- 主页日间主题. -->
     <style name="AppTheme.Normal" parent="Theme.AppCompat.Light.NoActionBar">

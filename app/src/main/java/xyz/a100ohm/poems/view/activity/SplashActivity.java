@@ -56,7 +56,7 @@ public class SplashActivity extends BaseActivity {
                         Toast.makeText(SplashActivity.this, "不是第一次运行",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
-                                GuideActivity.class));
+                                MainActivity.class));
                     }
                     finish();
                     break;

@@ -1,6 +1,7 @@
 package xyz.a100ohm.poems.view.activity;
 
 import android.os.Build;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,14 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.utils.L;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.view.fragment.FeedbackFragment;
 import xyz.a100ohm.poems.view.fragment.HelpFragment;
@@ -34,6 +42,7 @@ import xyz.a100ohm.poems.view.fragment.SettingFragment;
  * @update [1][2019.4.4] [一百欧姆][应用主要页面]
  * [2][2019.4.6] [一百欧姆][增加了夜间模式的设置]
  * [3][2019.4.7] [一百欧姆][增加了菜单选项卡的切换]
+ * [4][2019.5.29] [一百欧姆][增加了点击返回键关闭菜单的方法]
  */
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -78,6 +87,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_fragment_framelayout, new MainFragment());
         transaction.commit();
+
+        //test
+        //String filePath = Environment.getExternalStorageDirectory().getPath();
+
     }
 
     private void initView() {
@@ -146,11 +159,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         return true;
     }
 
+    //替换fragment
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_fragment_framelayout, fragment);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);//注释掉不加入返回栈
         transaction.commit();
+    }
+
+    //返回键关闭菜单
+    @Override
+    public void onBackPressed() {
+        if(mDrawerLayout.isDrawerOpen(findViewById(R.id.design_nav_view)))
+            mDrawerLayout.closeDrawers();
+        else
+            super.onBackPressed();
     }
 }
