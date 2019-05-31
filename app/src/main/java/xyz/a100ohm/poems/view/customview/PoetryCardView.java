@@ -12,10 +12,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import xyz.a100ohm.poems.R;
 import xyz.a100ohm.poems.utils.L;
@@ -30,6 +30,7 @@ import xyz.a100ohm.poems.utils.L;
  * @version v1.0
  * @update [1][2019/4/8] [一百欧姆][自定义的诗词卡片视图]
  * [2][2019.4.6] [一百欧姆][尝试处理用户上划下滑手势]
+ * [3][2019.5.29] [一百欧姆][完成滑动卡片的功能]
  */
 public class PoetryCardView extends FrameLayout {
 
@@ -37,8 +38,7 @@ public class PoetryCardView extends FrameLayout {
     float x0, y0, z0, x1, y1, z1, x2, y2, z2;
 
     /**卡片间隔位置*/
-    private static final float CARD_VIEW_INTERVAL = 0.04f;
-    //private  float cardViewInterval;
+    private static final float CARD_VIEW_INTERVAL_PERCENT = 0.000046f;
 
     /** DragHelper*/
     //private ViewDragHelper mDragHelper;
@@ -46,7 +46,8 @@ public class PoetryCardView extends FrameLayout {
     /** Animation*/
     //private ObjectAnimator animator;
 
-    /***/
+    /** 观察者，用于检测是否收到点击*/
+    private List<OnClickListener> onClickListeners;
 
 
 
@@ -119,7 +120,9 @@ public class PoetryCardView extends FrameLayout {
         //设置卡片位置
         //float dp = getResources().getDimension(R.dimen.card_view_interval);
         //x0 = midCardX + DisplayUtil.dip2px(getContext(), dp);
-        float in = getChildAt(0).getWidth() * CARD_VIEW_INTERVAL;
+        final float in = getChildAt(0).getWidth()
+                * getChildAt(0).getHeight()
+                * CARD_VIEW_INTERVAL_PERCENT;
         x0 = midCardX + in;
         y0 = midCardY + in;
         x1 = midCardX;
@@ -174,6 +177,18 @@ public class PoetryCardView extends FrameLayout {
         return true;
     }
 
+    private float downY;//记录按下的事件位置
+    private long downTime;//按下事件的时间
+    private float startEventY;//按下并有移动后，开始移动的事件位置
+    private float startCardY;//按下并有移动后，开始移动时的卡片位置
+    private boolean isStart;//记录是否开始了滑动卡片
+    private boolean isLockCardMove;//在播放动画时锁定触摸事件
+    private float cardNowX, cardNowY;//用于判断卡片当前位置。因为用getY获取Y不及时，所以自己记录一下
+
+    private static final float CARD_MOVE_START = 20f;//如果从down到move，用户移动的y到达这个值的大小，则会开始移动卡片
+    private static final long CLICK_TIME = 200L;//如果从按下到弹起时间不超过这个值，则表示用户想要点击卡片
+    private static float CARD_MOVE_DISTANCE = 250f;//如果移动卡片超过这个值，则会刷新卡片，否则卡片弹回
+
     /**
      * 触摸事件处理(似乎处理有个规律，必须消费了down事件，move事件和up事件才会有响应)。
      * 当按下时，记录事件y位置。
@@ -186,18 +201,6 @@ public class PoetryCardView extends FrameLayout {
      * @param ev 触摸事件
      * @return 返回true消费掉事件，否则继续传递事件
      */
-    private float downY;//记录按下的事件位置
-    private long downTime;//按下事件的时间
-    private float startEventY;//按下并有移动后，开始移动的事件位置
-    private float startCardY;//按下并有移动后，开始移动时的卡片位置
-    private boolean isStart;//记录是否开始了滑动卡片
-    private boolean isLockCardMove;//在播放动画时锁定触摸事件
-    private float cardNowX, cardNowY;//用于判断卡片当前位置。因为用getY获取Y不及时，所以自己记录一下
-
-    private static final float CARD_MOVE_START = 20f;//如果从down到move，用户移动的y到达这个值的大小，则会开始移动卡片
-    private static final long CLICK_TIME = 200L;//如果从按下到弹起时间不超过这个值，则表示用户想要点击卡片
-    private static final float CARD_MOVE_DISTANCE = 400f;//如果移动卡片超过这个值，则会刷新卡片，否则卡片弹回
-
     @Override
     public boolean onTouchEvent(MotionEvent ev){
         if(isLockCardMove)
@@ -239,6 +242,8 @@ public class PoetryCardView extends FrameLayout {
                     //处理点击事件
                     L.d("用户点击");
                     cancelTouchEvent();
+                    // TODO: 2019/5/30  
+                    notifyClickListeners("通知");
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -293,13 +298,13 @@ public class PoetryCardView extends FrameLayout {
             if(!movwDown) {//向上的动画
                 topCardAnim = ObjectAnimator.ofFloat(getChildAt(2),
                         "Y", cardNowY, -getChildAt(2).getHeight())
-                        .setDuration(300);
+                        .setDuration(250);
                 topCardAnim.start();
 
             } else {//向下的动画
                 topCardAnim = ObjectAnimator.ofFloat(getChildAt(2),
                         "Y", cardNowY, getMeasuredHeight())
-                        .setDuration(300);
+                        .setDuration(250);
                 topCardAnim.start();
             }
             ObjectAnimator CardAnim1x = ObjectAnimator.ofFloat(getChildAt(1), "X", x1, x2);
@@ -315,7 +320,6 @@ public class PoetryCardView extends FrameLayout {
             anSet.addListener(new Animator.AnimatorListener() {
                 public void onAnimationStart(Animator animation) {}
                 public void onAnimationEnd(Animator animation) {
-                    //PoetryCardView.this.getChildAt(2).setY(y2);
                     PoetryCardView.this.removeViewAt(2);
                     View child = View.inflate(PoetryCardView.this.getContext(), R.layout.cardview_poetry, null);
                     child.setX(x0);
@@ -324,6 +328,9 @@ public class PoetryCardView extends FrameLayout {
                         child.setZ(z0);
                     }
                     PoetryCardView.this.addView(child, 0);
+                    ObjectAnimator an = ObjectAnimator.ofFloat(child, "Alpha", 0, 1);
+                    an.setDuration(400);
+                    an.start();
                     isLockCardMove = false;
                 }
                 public void onAnimationCancel(Animator animation) {}
@@ -332,7 +339,7 @@ public class PoetryCardView extends FrameLayout {
             anSet.play(CardAnim1x).with(CardAnim1y).with(CardAnim1z)
                     .with(CardAnim0x).with(CardAnim0y).with(CardAnim0z)
                     .with(topCardAnim);
-            anSet.setDuration(300);
+            anSet.setDuration(250);
             anSet.start();
         }
     }
@@ -348,5 +355,34 @@ public class PoetryCardView extends FrameLayout {
                 && y > cardNowY
                 && x < cardNowX + child.getWidth()
                 && y < cardNowY + child.getHeight();
+    }
+
+    /** 点击相关*/
+    //点击时的调用接口，点击的操作初定是分享诗句，但是评论诗句（诗文评）、弹出诗句详情页都是可以的
+    public interface OnClickListener{
+        /**
+         * 点击时候的的处理
+         * @param poetry 当前点击的诗句
+         */
+        void onClick(String poetry);
+    }
+
+    //增加点击倾听者
+    public void addCardOnClickListener(OnClickListener l) {
+        if(onClickListeners == null)
+            synchronized (this) {
+                if(onClickListeners == null)
+                    onClickListeners = new ArrayList<>(1);
+            }
+        onClickListeners.add(l);
+    }
+
+    //通知所有点击倾听者，表示用户点击这句诗
+    private void notifyClickListeners(String poetry) {
+        if(onClickListeners == null)
+            return;
+        for(OnClickListener l : onClickListeners) {
+            l.onClick(poetry);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package xyz.a100ohm.poems.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import xyz.a100ohm.poems.R;
@@ -15,6 +16,10 @@ import xyz.a100ohm.poems.R;
  * @update [1][19.4.4] [一百欧姆][注册页面]
  */
 public class SignUpActivity extends BaseActivity {
+
+    public static void startActivity(Context context) {
+        context.startActivity(new Intent(context, SignUpActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

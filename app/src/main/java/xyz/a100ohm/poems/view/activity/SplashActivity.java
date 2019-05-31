@@ -46,15 +46,13 @@ public class SplashActivity extends BaseActivity {
                         .HANDLE_SPLASH_MSG:
                     //判断程序是否是第一次运行
                     if(isFirst()) {
-                        // TODO: 2019/4/7  
-                        Toast.makeText(SplashActivity.this, "第一次运行",
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(SplashActivity.this, "第一次运行",
+//                                Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
                                 GuideActivity.class));
-                    } else { //改了
-                        // TODO: 2019/4/7  
-                        Toast.makeText(SplashActivity.this, "不是第一次运行",
-                                Toast.LENGTH_SHORT).show();
+                    } else {
+//                        Toast.makeText(SplashActivity.this, "不是第一次运行",
+//                                Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
                                 MainActivity.class));
                     }
@@ -79,23 +77,25 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        //初始化View
-        initView();
     }
 
-    //初始化view
-    private void initView() {
-        //1000ms
+    @Override
+    protected void onResume() {
+        super.onResume();
         Message message = new Message();
         message.what = StaticMessage.HANDLE_SPLASH_MSG;
-        handler.sendMessageDelayed(message, 1000);
-        //handler.get().sendEmptyMessageDelayed(StaticClass.HANDLE_SPLASH_MSG, 1000);
+        handler.sendMessageDelayed(message, 500);
     }
 
     //禁止返回键返回
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeMessages(StaticMessage.HANDLE_SPLASH_MSG);
     }
 }

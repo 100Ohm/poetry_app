@@ -1,6 +1,15 @@
 <resources>
     <!--=============主页相关主题============-->
-    <!-- 主页日间主题. -->
+    <!-- 主页主题. -->
+    <style name="AppTheme.Normal.Main" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Toolbar风格 -->
+        <item name="toolbarStyle">@style/Theme.Toolbar.App.Style</item>
+    </style>
+
     <style name="AppTheme.Normal" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -31,6 +40,25 @@
     <style name="Theme.ToolBar.App.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <!--EditText和checkbox主题-->
+    <style name="AppTheme.Normal.TextInput" parent="AppTheme.Normal.Main">
+        <!--没有焦点时候的颜色-->
+        <item name="colorControlNormal">@android:color/white</item>
+        <!--有焦点时候的颜色-->
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <!--提示文字的颜色-->
+        <item name="android:textColorHint">#CCFFFFFF</item>
+        <!--输入的文字颜色-->
+        <item name="android:editTextColor">@android:color/white</item>
+        <!--输入的文字颜色-->
+        <item name="editTextColor">@android:color/white</item>
+    </style>
+
+    <!--EditText浮动标签的颜色-->
+    <style name="AppTheme.Normal.hintAppearance" parent="AppTheme.Normal.Main">
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 

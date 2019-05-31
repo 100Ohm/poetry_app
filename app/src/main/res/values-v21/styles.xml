@@ -2,7 +2,7 @@
 
     <!--=============主页相关主题============-->
     <!-- 主页日间主题. -->
-    <style name="AppTheme.Normal" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Normal.Main" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

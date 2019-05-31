@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--后面卡片向前移动的动画，间隔是4%-->
-    <!--因为这里不知道为什么不能引用dimen的值，所以改了这两个百分比，就记得改一下PoetryCardView类的CARD_VIEW_INTERVAL-->
-    <translate
-        android:fromYDelta="0%"
-        android:toYDelta="-4%"
-        android:fromXDelta="0%"
-        android:toXDelta="-4%"
-        android:duration="300"/>
+    <!--<translate-->
+        <!--android:fromYDelta="0%"-->
+        <!--android:toYDelta="-4%"-->
+        <!--android:fromXDelta="0%"-->
+        <!--android:toXDelta="-4%"-->
+        <!--android:duration="300"/>-->
 </set>

@@ -5,4 +5,11 @@
     <color name="colorAccent">#4C84CA</color>
     <color name="colorNav">#414452</color>
     <color name="colorCardBackground">#868686</color>
+    <!--诗文评的引用背景-->
+    <color name="colorQuoteBackground">#39414D</color>
+    <color name="colorQuoteLines">#56759B</color>
+    <!--图片上层的颜色-->
+    <color name="colorImageMask">@color/black_20</color>
+    <!--时间等小字-->
+    <color name="colorTime">@color/white_20</color>
 </resources>

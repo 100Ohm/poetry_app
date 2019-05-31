@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/cardview_shadow">
 
-    <TextView
-        android:id="@+id/card_tv_poem"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:text="但願盤根堅似石\n不憂枝幹不淩雲"
-        android:fontFamily="@font/ke_shi_lu_yan_ti"
-        android:textSize="30sp"
-        android:layout_weight="4"
-        android:singleLine="false"
-        android:gravity="center"/>
+        android:src="@drawable/everyday_stamp_69"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="35dp"/>
 
-    <TextView
-        android:id="@+id/card_tv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="20dp"
-        android:text="——郭祥正"
-        android:fontFamily="@font/ke_shi_lu_yan_ti"
-        android:textSize="25sp"
-        android:layout_weight="1"
-        android:gravity="right"/>
-</LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/card_tv_poem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="但願盤根堅似石\n不憂枝幹不淩雲"
+            android:fontFamily="@font/ke_shi_lu_yan_ti"
+            android:textSize="30sp"
+            android:layout_weight="4"
+            android:singleLine="false"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/card_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"
+            android:text="——郭祥正"
+            android:fontFamily="@font/ke_shi_lu_yan_ti"
+            android:textSize="25sp"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+</FrameLayout>

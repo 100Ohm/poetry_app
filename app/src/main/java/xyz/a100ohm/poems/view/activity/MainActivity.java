@@ -143,10 +143,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_setting:
                 replaceFragment(new SettingFragment());
+                // TODO: 2019/5/29
+                LoginActivity.startActivity(this);
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_help:
-                replaceFragment(new HelpFragment());
+//                replaceFragment(new HelpFragment());
+                // TODO: 2019/5/29
+                SignUpActivity.startActivity(this);
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_feedback:
@@ -164,7 +168,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_fragment_framelayout, fragment);
-        //transaction.addToBackStack(null);//注释掉不加入返回栈
+        transaction.addToBackStack(fragment.getClass().getSimpleName());//加入返回栈
         transaction.commit();
     }
 

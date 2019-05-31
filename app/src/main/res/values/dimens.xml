@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--诗词卡片的间隔-->
-    <dimen name="card_view_interval">4%</dimen>
+    <!--行间距-->
+    <dimen name="lineSpacingExtra">4dp</dimen>
 </resources>
