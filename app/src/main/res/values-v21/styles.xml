@@ -28,14 +28,13 @@
     <!-- Toolbar样式 -->
     <style name="Theme.Toolbar.App.Style" parent="@style/Widget.AppCompat.Toolbar">
         <item name="android:background">@color/colorNav</item>
-
         <item name="titleTextAppearance">@style/Theme.ToolBar.App.Title</item>
     </style>
 
     <!--设置toolbar标题主题-->
     <style name="Theme.ToolBar.App.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#ffffff</item>
+    <item name="android:textColor">@color/white_100</item>
     </style>
 
 

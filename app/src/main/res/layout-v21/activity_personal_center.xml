@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.PersonalCenterActivity"
+    android:fitsSystemWindows="true">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/person_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/colorNav"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true">
+
+            <FrameLayout
+                android:id="@+id/person_nav_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax"
+                android:fitsSystemWindows="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/background_1"
+                    android:fitsSystemWindows="true"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorImageMask"
+                    android:fitsSystemWindows="true"/>
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/person_nav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/person_head"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/head_portrait"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/person_head"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/person_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="邮箱：xxxxxxxxx@xx.com"
+                        android:textColor="@color/white_100"/>
+                    <TextView
+                        android:id="@+id/person_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手机：xxxxxxxxxxxx"
+                        android:textColor="@color/white_100"/>
+                    <TextView
+                        android:id="@+id/person_signal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ems="15"
+                        android:text="这个人很懒，什么都没有留下."
+                        android:textColor="@color/white_100"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/person_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/none_color"
+                android:fitsSystemWindows="true"
+                app:title="念诗用户"
+                app:layout_collapseMode="pin"/>
+
+            <FrameLayout
+                android:id="@+id/person_open_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorNav"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="pin"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:id="@+id/person_message"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/ic_message_white"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/person_bookreck_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/person_trends_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/person_float_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_book_gray"
+        android:tint="@color/white_100"
+        app:fabSize="auto"
+        app:layout_anchor="@id/person_appbar"
+        app:layout_anchorGravity="bottom|right"/>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -77,6 +77,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
     }
 
     @Override
@@ -84,7 +85,7 @@ public class SplashActivity extends BaseActivity {
         super.onResume();
         Message message = new Message();
         message.what = StaticMessage.HANDLE_SPLASH_MSG;
-        handler.sendMessageDelayed(message, 500);
+        handler.sendMessageDelayed(message, 200);
     }
 
     //禁止返回键返回

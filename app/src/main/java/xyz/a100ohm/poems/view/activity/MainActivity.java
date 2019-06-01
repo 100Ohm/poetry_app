@@ -1,7 +1,5 @@
 package xyz.a100ohm.poems.view.activity;
 
-import android.os.Build;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,21 +13,12 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import xyz.a100ohm.poems.R;
-import xyz.a100ohm.poems.utils.L;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.view.fragment.FeedbackFragment;
-import xyz.a100ohm.poems.view.fragment.HelpFragment;
 import xyz.a100ohm.poems.view.fragment.LibrayFragment;
 import xyz.a100ohm.poems.view.fragment.MainFragment;
 import xyz.a100ohm.poems.view.fragment.MyPoetryFragment;
-import xyz.a100ohm.poems.view.fragment.PersonalCenterFragment;
 import xyz.a100ohm.poems.view.fragment.SettingFragment;
 
 /**
@@ -75,7 +64,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         navigationView.setNavigationItemSelectedListener(this);
 
         //日间夜间模式初始设置
-        boolean night = SharedPreferencesUtils.getBoolean(MainActivity.this, "NightMode", false);
+        boolean night = SharedPreferencesUtils.getBoolean(getApplicationContext(), "NightMode", false);
         if(night) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
@@ -122,7 +111,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_person://个人中心
-                replaceFragment(new PersonalCenterFragment());
+                //replaceFragment(new PersonalCenterFragment());
+                PersonalCenterActivity.startActivity(this);
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_my_poetry_anthology:
@@ -130,14 +120,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_night_mode://夜间模式
-                boolean night = SharedPreferencesUtils.getBoolean(MainActivity.this, "NightMode", false);
+                boolean night = SharedPreferencesUtils.getBoolean(getApplicationContext(), "NightMode", false);
                 if(night) {//如果处于夜间，开启日间模式，并设置标记为false
                     getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPreferencesUtils.putBoolean(MainActivity.this, "NightMode", false);
+                    SharedPreferencesUtils.putBoolean(getApplicationContext(), "NightMode", false);
                     recreate();
                 } else {//如果处于日间，开启夜间模式，并设置标记为true
                     getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferencesUtils.putBoolean(MainActivity.this, "NightMode", true);
+                    SharedPreferencesUtils.putBoolean(getApplicationContext(), "NightMode", true);
                     recreate();
                 }
                 break;

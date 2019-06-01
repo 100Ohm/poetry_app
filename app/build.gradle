@@ -23,8 +23,8 @@ android {
         }
         manifestPlaceholders = [
                 //MTA接入
-                MTA_APPKEY:"A616YXK3CSCX",
-                MTA_CHANNEL:"官方渠道"
+                MTA_APPKEY : "A616YXK3CSCX",
+                MTA_CHANNEL: "官方渠道"
         ]
     }
     buildTypes {
