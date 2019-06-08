@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/comment_head_layout"
-        android:paddingRight="10dp"
+        android:paddingRight="25dp"
         android:paddingTop="15dp"
         android:paddingBottom="10dp">
 
@@ -64,29 +64,48 @@
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorQuoteLines"/>
-            <TextView
-                android:id="@+id/comment_quote"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:padding="10dp"
-                android:text="人闲桂花落\n夜静春山空\n月出惊山鸟\n时鸣春涧中"
-                android:lineSpacingExtra="@dimen/lineSpacingExtra"
-                android:background="@color/colorQuoteBackground"/>
+                android:orientation="vertical"
+                android:background="@color/colorQuoteBackground">
+                <TextView
+                    android:id="@+id/comment_quote"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="人闲桂花落\n夜静春山空\n月出惊山鸟\n时鸣春涧中"
+                    android:lineSpacingExtra="@dimen/lineSpacingExtra" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="——《鸟鸣涧》王维"
+                    android:textColor="@color/colorPrimary"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="10dp"
+                    android:gravity="right"/>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/comment_time_view_com_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/comment_quote_layout"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:orientation="horizontal">
-            <!--时间-->
+            <!--时间 来源-->
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:text="5月31日"
+                android:text="5月31日    唐代诗集"
                 android:textColor="@color/colorTime"
                 android:textSize="10sp"/>
             <!--浏览-->
@@ -125,7 +144,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="90"
+                    android:text="3"
                     android:textColor="@color/colorTime"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -145,10 +164,76 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="90"
+                    android:text="12"
                     android:textColor="@color/colorTime"
                     android:textSize="10sp" />
             </LinearLayout>
+        </LinearLayout>
+        <!--评论-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            android:layout_below="@id/comment_time_view_com_up">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="用户1："/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="全诗紧扣一“静”字着笔，极似一幅风景写生画。"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="用户2："/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="牛逼"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="用户3："/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="你们也太强了"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:text="查看详情>>"/>
         </LinearLayout>
     </RelativeLayout>
     <View

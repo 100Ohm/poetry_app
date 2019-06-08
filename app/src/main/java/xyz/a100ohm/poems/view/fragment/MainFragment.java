@@ -41,13 +41,26 @@ public class MainFragment extends Fragment {
     //Fragment
     private List<Fragment> mFragment;
 
+    //根布局
+    private View mView;
+
     //SwipeRefreshLayout
     //private SwipeRefreshLayout swipeRefreshLayout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        return view;
+
+        if (mView != null) {
+            ViewGroup parent = (ViewGroup) mView.getParent();
+            if (parent != null) {
+                parent.removeView(mView);
+            }
+            return mView;
+        }
+        View rootView = null;
+        rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        mView = rootView;
+        return rootView;
     }
 
     @Override

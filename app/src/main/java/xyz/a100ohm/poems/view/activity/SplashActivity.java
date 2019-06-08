@@ -1,16 +1,20 @@
 package xyz.a100ohm.poems.view.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.ref.SoftReference;
 
+import cn.bmob.v3.BmobUser;
 import xyz.a100ohm.poems.R;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.utils.StaticMessage;
@@ -46,15 +50,18 @@ public class SplashActivity extends BaseActivity {
                         .HANDLE_SPLASH_MSG:
                     //判断程序是否是第一次运行
                     if(isFirst()) {
-//                        Toast.makeText(SplashActivity.this, "第一次运行",
-//                                Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SplashActivity.this,
                                 GuideActivity.class));
                     } else {
-//                        Toast.makeText(SplashActivity.this, "不是第一次运行",
-//                                Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SplashActivity.this,
-                                MainActivity.class));
+                        BmobUser bmobUser = BmobUser.getCurrentUser(SplashActivity.this);
+                        if(bmobUser != null){
+                            // 允许用户使用应用
+                            startActivity(new Intent(SplashActivity.this,
+                                    MainActivity.class));
+                        }else{
+                            //缓存用户对象为空时， 可打开用户注册界面…
+                            LoginActivity.startActivity(SplashActivity.this);
+                        }
                     }
                     finish();
                     break;
@@ -77,15 +84,28 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
         Message message = new Message();
         message.what = StaticMessage.HANDLE_SPLASH_MSG;
         handler.sendMessageDelayed(message, 200);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Message message = new Message();
+        message.what = StaticMessage.HANDLE_SPLASH_MSG;
+        handler.sendMessageDelayed(message, 200);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeMessages(StaticMessage.HANDLE_SPLASH_MSG);
     }
 
     //禁止返回键返回
@@ -97,6 +117,5 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        handler.removeMessages(StaticMessage.HANDLE_SPLASH_MSG);
     }
 }

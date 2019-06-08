@@ -17,9 +17,6 @@ public class StaticMessage {
     //判断程序是否第一次运行时，使用的SharePreference的key值
     public static final String SHARE_IS_FIRST = "isFirst";
 
-    //Bugly Key
-    //public static final String BUGLY_KEY = "2232615697";
-
     //Bmob Key
-    //public static final String BMOB_KEY = "320b1c4f7af751498ee40374972f9dc0";
+    public static final String BMOB_KEY = "1e61717054dbc37912e0311522590ed8";
 }

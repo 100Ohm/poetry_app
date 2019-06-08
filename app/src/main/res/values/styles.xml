@@ -61,5 +61,14 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <!--白色的字体颜色-->
+    <style name="AppTheme.Normal.whiteText" parent="AppTheme.Normal.Main">
+        <item name="android:textColor">@color/white_100</item>
+    </style>
+
+    <!--加载中的小动画-->
+    <style name="MyProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
+    </style>
+
 
 </resources>

@@ -66,8 +66,8 @@ public class GuideActivity extends BaseActivity {
         view3.findViewById(R.id.enter_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-                startActivity(intent);
+                //打开登陆页面
+                LoginActivity.startActivity(GuideActivity.this);
                 finish();
             }
         });

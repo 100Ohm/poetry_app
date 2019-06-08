@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Build;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -61,29 +62,16 @@ public class PoetryCardView extends FrameLayout {
 
     public PoetryCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        //添加三个view到界面中
-        View view1 = View.inflate(context, R.layout.cardview_poetry, null);
-        View view2 = View.inflate(context, R.layout.cardview_poetry, null);
-        View view3 = View.inflate(context, R.layout.cardview_poetry, null);
-        addView(view1);
-        addView(view2);
-        addView(view3);
-
-        //安卓版本号大于21的话，三个view是CardView，需要设置Z高度
-        //安卓版本低于21的话，三个view是普通view，只是设置了阴影，所以不用设置Z高度
-        if(android.os.Build.VERSION.SDK_INT >= 21) {
-            z0 = 5f;
-            z1 = 10f;
-            z2 = 12f;
-            view1.setZ(z0);
-            view2.setZ(z1);
-            view3.setZ(z2);
-        }
+        init(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public PoetryCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(context);
+    }
+
+    private void init(Context context) {
         //添加三个view到界面中
         View view1 = View.inflate(context, R.layout.cardview_poetry, null);
         View view2 = View.inflate(context, R.layout.cardview_poetry, null);
@@ -384,5 +372,11 @@ public class PoetryCardView extends FrameLayout {
         for(OnClickListener l : onClickListeners) {
             l.onClick(poetry);
         }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        super.onRestoreInstanceState(state);
+        init(getContext());
     }
 }

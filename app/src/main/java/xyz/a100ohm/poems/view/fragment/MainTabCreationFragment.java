@@ -21,7 +21,7 @@ import xyz.a100ohm.poems.view.customview.CommentAdapter;
  *
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
- * @update [1][2019/4/7] [一百欧姆][主页菜单的作诗模块]
+ * @update [1][2019/4/7] [一百欧姆][主页菜单的作诗模块，浏览别人作的诗]
  */
 public class MainTabCreationFragment extends Fragment {
     @Nullable

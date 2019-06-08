@@ -4,11 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.view.customview.MyPoetryListAdapter;
+import xyz.a100ohm.poems.view.customview.PoetryBookAdapter;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -25,6 +30,14 @@ public class MyPoetryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_poetry, container, false);
+        //诗集recyclerView
+        RecyclerView r = (RecyclerView) view.findViewById(R.id.recycler_view_my_poetry);
+        StaggeredGridLayoutManager sgm = new
+                StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        sgm.setOrientation(LinearLayoutManager.VERTICAL);
+        r.setLayoutManager(sgm);
+        MyPoetryListAdapter ad = new MyPoetryListAdapter(16);
+        r.setAdapter(ad);
         return view;
     }
 }

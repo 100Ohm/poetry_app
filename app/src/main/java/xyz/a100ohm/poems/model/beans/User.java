@@ -14,7 +14,10 @@ import cn.bmob.v3.datatype.BmobFile;
  * @update [1][2019/5/30] [一百欧姆][创建文件]
  */
 public class User extends BmobUser {
-    private BmobFile image;
+
+    private BmobFile image;//头像
+    private String description;//个性签名
+
 
     public BmobFile getImage() {
         return image;
@@ -22,5 +25,13 @@ public class User extends BmobUser {
 
     public void setImage(BmobFile image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

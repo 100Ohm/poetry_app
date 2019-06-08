@@ -1,7 +1,10 @@
 package xyz.a100ohm.poems.view.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,8 +15,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import cn.bmob.v3.BmobUser;
+import de.hdodenhof.circleimageview.CircleImageView;
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.model.beans.User;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.view.fragment.FeedbackFragment;
 import xyz.a100ohm.poems.view.fragment.LibrayFragment;
@@ -37,6 +45,14 @@ import xyz.a100ohm.poems.view.fragment.SettingFragment;
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
     //drawerLayout
     private DrawerLayout mDrawerLayout;
+
+    private CircleImageView headImage;
+    private TextView userNameTextView;
+    private TextView emailTextView;
+
+    public static void startActivity(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,19 +87,42 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
-        //初始fragment设置为MainFragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.main_fragment_framelayout, new MainFragment());
-        transaction.commit();
+        if(savedInstanceState == null) {//只在第一次的时候加入
+            //初始fragment设置为MainFragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.main_fragment_framelayout, new MainFragment());
+            transaction.commit();
+        }
 
-        //test
-        //String filePath = Environment.getExternalStorageDirectory().getPath();
+        User user = BmobUser.getCurrentUser(this, User.class);
+        if(user != null){
+            //设置显示用户等
+            displayUser(user);
+        }
 
     }
 
     private void initView() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        //NavigationView不能直接使用findViewById
+        NavigationView navigationView = (NavigationView) findViewById(R.id.design_nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        headImage = (CircleImageView) headerView.findViewById(R.id.icon_image);
+        emailTextView = (TextView) headerView.findViewById(R.id.mail);
+        userNameTextView = (TextView) headerView.findViewById(R.id.username);
+    }
+
+    /**
+     * 显示用户信息在侧滑菜单
+     * @param user 用户对象
+     */
+    public void displayUser(User user) {
+        if(user.getImage() != null)
+            Snackbar.make(headImage, "有图", Snackbar.LENGTH_SHORT).show();
+        userNameTextView.setText(user.getUsername());
+        emailTextView.setText(user.getEmail());
     }
 
     //Toolbar响应
@@ -139,8 +178,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_help:
 //                replaceFragment(new HelpFragment());
-                // TODO: 2019/5/29
-                SignUpActivity.startActivity(this);
+//                // TODO: 2019/5/29
+//                SignUpActivity.startActivity(this);
+                startActivity(new Intent(this,
+                        GuideActivity.class));
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_feedback:

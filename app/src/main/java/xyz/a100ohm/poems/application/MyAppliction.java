@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatDelegate;
 import com.tencent.stat.StatConfig;
 import com.tencent.stat.StatService;
 
+import cn.bmob.v3.Bmob;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
+import xyz.a100ohm.poems.utils.StaticMessage;
 import xyz.a100ohm.poems.view.activity.MainActivity;
 
 /**
@@ -29,5 +31,7 @@ public class MyAppliction extends Application {
         StatConfig.setDebugEnable(true);
         // 注册activity生命周期，统计时长
         StatService.registerActivityLifecycleCallbacks(this);
+        //bomb初始化
+        Bmob.initialize(this, StaticMessage.BMOB_KEY);
     }
 }

@@ -21,7 +21,8 @@ import xyz.a100ohm.poems.R;
  * @update [1][2019/4/7] [一百欧姆][主页的每日一句模块]
  */
 public class MainTabEveryDayFragment extends Fragment {
-    View mView;
+    //根布局
+    private View mView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

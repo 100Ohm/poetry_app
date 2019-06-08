@@ -15,6 +15,8 @@
     <color name="colorTime">@color/black_30</color>
     <!--图片上面的一层颜色-->
     <color name="colorImageMask">@color/none_color</color>
+    <!--白色背景下的字体颜色-->
+    <color name="colorTextInWhiteBackground">@color/black_80</color>
 
     <!--透明-->
     <color name="none_color">#00000000</color>
