@@ -4,20 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.AppCompatCheckBox;
-import android.text.Editable;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.model.beans.bomb.User;
 import xyz.a100ohm.poems.utils.StringUtils;
 
 /**
@@ -77,7 +70,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                 && validatePassword(passwordStr)
                 && validateRepeatPassword(passwordStr, repeatPasswordStr)) {//如果都通过初步检查，就注册用户
             progress.setVisibility(View.VISIBLE);
-            BmobUser bu = new BmobUser();
+            User bu = new User();
             bu.setEmail(emailStr);
             bu.setUsername(usernameStr);
             bu.setPassword(passwordStr);
@@ -89,6 +82,8 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                     Snackbar.make(signUpButton, "注册成功", Snackbar.LENGTH_SHORT).show();
                     //通过BmobUser user = BmobUser.getCurrentUser(context)获取登录成功后的本地用户信息
                     //如果是自定义用户对象MyUser，可通过MyUser user = BmobUser.getCurrentUser(context,MyUser.class)获取自定义用户信息
+                    MainActivity.startActivity(SignUpActivity.this);
+                    finish();
                 }
                 @Override
                 public void onFailure(int code, String msg) {

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.presenter.EveryDayPresenter;
+import xyz.a100ohm.poems.view.viewinterface.ViewEveryDay;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -36,6 +38,9 @@ public class MainTabEveryDayFragment extends Fragment {
         View rootView = null;
         rootView = inflater.inflate(R.layout.fragment_main_tab_every_day, container, false);
         mView = rootView;
+        //设置view的Presenter
+        ViewEveryDay card = (ViewEveryDay) mView.findViewById(R.id.poetry_card_view);
+        card.setPresenter(new EveryDayPresenter(card));
         return rootView;
     }
 }

@@ -20,8 +20,10 @@ import android.widget.TextView;
 
 import cn.bmob.v3.BmobUser;
 import de.hdodenhof.circleimageview.CircleImageView;
+import io.realm.Realm;
 import xyz.a100ohm.poems.R;
-import xyz.a100ohm.poems.model.beans.User;
+import xyz.a100ohm.poems.model.beans.bomb.User;
+import xyz.a100ohm.poems.utils.L;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.view.fragment.FeedbackFragment;
 import xyz.a100ohm.poems.view.fragment.LibrayFragment;
@@ -49,6 +51,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private CircleImageView headImage;
     private TextView userNameTextView;
     private TextView emailTextView;
+
+    private Realm realm;
+
+
 
     public static void startActivity(Context context) {
         context.startActivity(new Intent(context, MainActivity.class));
@@ -100,6 +106,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             //设置显示用户等
             displayUser(user);
         }
+        //获取realm对象
+        realm = Realm.getDefaultInstance();
+        L.e("从MainActivity中获取的realm对象"+realm);
 
     }
 
@@ -210,5 +219,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             mDrawerLayout.closeDrawers();
         else
             super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //使用完之后关闭
+        //realm.close();
     }
 }

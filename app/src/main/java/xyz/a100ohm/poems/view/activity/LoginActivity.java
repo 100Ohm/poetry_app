@@ -3,7 +3,6 @@ package xyz.a100ohm.poems.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -11,9 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.model.beans.bomb.User;
 import xyz.a100ohm.poems.utils.StringUtils;
 
 /**
@@ -74,7 +73,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         if(validateAccount(usernameStr) && validatePassword(passwordStr)) {
             progress.setVisibility(View.VISIBLE);
-            BmobUser bu2 = new BmobUser();
+            User bu2 = new User();
             bu2.setUsername(usernameStr);
             bu2.setPassword(passwordStr);
             bu2.login(LoginActivity.this, new SaveListener() {
@@ -133,7 +132,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             return false;
         }
 
-        if (password.length() < 6 || password.length() > 18) {
+        if (password.length() > 18) {
             showError(this.password,"密码长度为6-18位");
             return false;
         }

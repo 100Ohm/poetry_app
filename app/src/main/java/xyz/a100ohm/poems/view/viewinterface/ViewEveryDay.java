@@ -1,5 +1,9 @@
 package xyz.a100ohm.poems.view.viewinterface;
 
+import android.view.View;
+
+import xyz.a100ohm.poems.presenter.presenterinterface.PresenterEveryDayInterface;
+
 /**
  * <p>项目名称: poetry_app </p>
  * <p>文件名称: null.java </p>
@@ -14,7 +18,16 @@ package xyz.a100ohm.poems.view.viewinterface;
 public interface ViewEveryDay {
     /**
      * 让卡片显示诗句
-     * @param poetry 回调返回的诗句，第一二次需要三句诗，第二次及以后需要一句诗
+     * @param view 显示诗句的cardView
+     * @param poetry 回调返回的诗句，首次需要三句诗，第二次及以后需要一句诗
+     * @param author 回调返回的作者序列
+     * @param id
      */
-    void displayCard(String[] poetry);
+    void displayCard(View view, String[] poetry, String[] author, String[] id);
+
+    /**
+     * 设置PresenterEveryDay
+     * @param presenter 指定的Presenter
+     */
+    void setPresenter(PresenterEveryDayInterface presenter);
 }

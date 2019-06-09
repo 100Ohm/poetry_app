@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 28
@@ -90,4 +91,7 @@ dependencies {
     //implementation 'com.android.support:preference-v7:28.0.0'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     //implementation 'com.android.support:support-compat:28.0.0'
+
+    //==================今日诗词======================
+    api 'com.jinrishici:android-sdk:1.4'
 }

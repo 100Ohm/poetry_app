@@ -3,6 +3,7 @@ package xyz.a100ohm.poems.view.customview;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Parcelable;
@@ -14,12 +15,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.presenter.presenterinterface.PresenterEveryDayInterface;
 import xyz.a100ohm.poems.utils.L;
+import xyz.a100ohm.poems.view.viewinterface.ViewEveryDay;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -29,11 +33,11 @@ import xyz.a100ohm.poems.utils.L;
  *
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
- * @update [1][2019/4/8] [一百欧姆][自定义的诗词卡片视图]
+ * @update [1][2019/4/8] [一百欧姆][自定义的诗词卡片视图，滑动可以刷新诗词]
  * [2][2019.4.6] [一百欧姆][尝试处理用户上划下滑手势]
  * [3][2019.5.29] [一百欧姆][完成滑动卡片的功能]
  */
-public class PoetryCardView extends FrameLayout {
+public class PoetryCardView extends FrameLayout implements ViewEveryDay {
 
     /** 诗词卡片位置，用于动画*/
     float x0, y0, z0, x1, y1, z1, x2, y2, z2;
@@ -50,7 +54,11 @@ public class PoetryCardView extends FrameLayout {
     /** 观察者，用于检测是否收到点击*/
     private List<OnClickListener> onClickListeners;
 
+    /** 获取诗句的Presenter*/
+    private PresenterEveryDayInterface presenter;
 
+    /** 子view*/
+    private List<View> views = new ArrayList<>(4);
 
     public PoetryCardView(@NonNull Context context) {
         this(context, null);
@@ -72,6 +80,7 @@ public class PoetryCardView extends FrameLayout {
     }
 
     private void init(Context context) {
+        removeAllViews();
         //添加三个view到界面中
         View view1 = View.inflate(context, R.layout.cardview_poetry, null);
         View view2 = View.inflate(context, R.layout.cardview_poetry, null);
@@ -79,6 +88,9 @@ public class PoetryCardView extends FrameLayout {
         addView(view1);
         addView(view2);
         addView(view3);
+        views.add(view1);
+        views.add(view2);
+        views.add(view3);
 
         //安卓版本号大于21的话，三个view是CardView，需要设置Z高度
         //安卓版本低于21的话，三个view是普通view，只是设置了阴影，所以不用设置Z高度
@@ -307,15 +319,26 @@ public class PoetryCardView extends FrameLayout {
             //动画结束，最上面的卡片回归原位，改变文字
             anSet.addListener(new Animator.AnimatorListener() {
                 public void onAnimationStart(Animator animation) {}
-                public void onAnimationEnd(Animator animation) {
+                public void onAnimationEnd(Animator animation) {//新建卡片，并刷新数据
+                    //移除顶层的卡片
+                    views.remove(getChildAt(2));
                     PoetryCardView.this.removeViewAt(2);
+
                     View child = View.inflate(PoetryCardView.this.getContext(), R.layout.cardview_poetry, null);
+                    child.setTag("5b8b9572e116fb3714e6fa3c");
+
+                    if(presenter != null)//如果Presenter不为null，则申请刷新数据
+                        presenter.requestReflashCard(child);
+
                     child.setX(x0);
                     child.setY(y0);
                     if(android.os.Build.VERSION.SDK_INT >= 21) {
                         child.setZ(z0);
                     }
+                    //新卡片加入到布局中
                     PoetryCardView.this.addView(child, 0);
+                    views.add(child);//加入到views中
+
                     ObjectAnimator an = ObjectAnimator.ofFloat(child, "Alpha", 0, 1);
                     an.setDuration(400);
                     an.start();
@@ -343,6 +366,37 @@ public class PoetryCardView extends FrameLayout {
                 && y > cardNowY
                 && x < cardNowX + child.getWidth()
                 && y < cardNowY + child.getHeight();
+    }
+
+    //实现view接口
+    @Override
+    public void displayCard(final View view, final String[] poetry, final String[] author, final String[] id) {
+        if (!views.contains(view) || poetry.length != author.length)
+            return;
+        ((Activity)getContext()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (poetry.length == 1) {//只有一句诗的时候刷新最下面那张
+                    ((TextView) view.findViewById(R.id.card_tv_poem)).setText(poetry[0]);
+                    ((TextView) view.findViewById(R.id.card_tv_name)).setText("——" + author[0]);
+                    view.setTag(id[0]);
+                } else {//显示三句诗
+                    for (int i = poetry.length - 1; i >= 0; i--){
+                        ((TextView) getChildAt(i).findViewById(R.id.card_tv_poem)).setText(poetry[i]);
+                        ((TextView) getChildAt(i).findViewById(R.id.card_tv_name)).setText("——" + author[i]);
+                        view.setTag(id[i]);
+                    }
+                }
+            }
+        });
+    }
+
+    //实现view接口
+    @Override
+    public void setPresenter(PresenterEveryDayInterface presenter) {
+        this.presenter = presenter;
+        //首次设置的时候申请一下
+        presenter.requestReflashCard(getChildAt(0));
     }
 
     /** 点击相关*/
