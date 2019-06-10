@@ -2,7 +2,6 @@ package xyz.a100ohm.poems.application;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.v7.app.AppCompatDelegate;
 
 import com.jinrishici.sdk.android.factory.JinrishiciFactory;
 import com.tencent.stat.StatConfig;
@@ -12,9 +11,7 @@ import cn.bmob.v3.Bmob;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import xyz.a100ohm.poems.utils.L;
-import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 import xyz.a100ohm.poems.utils.StaticMessage;
-import xyz.a100ohm.poems.view.activity.MainActivity;
 
 /**
  * <p>项目名称: poetry_app </p>

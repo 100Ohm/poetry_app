@@ -24,7 +24,7 @@
             android:padding="30dp"
             android:text="玉户帘中卷不去\n捣衣砧上拂还来"
             android:fontFamily="@font/jiang_nan_shou_shu"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:layout_weight="4"
             android:singleLine="false"
             android:gravity="center"/>

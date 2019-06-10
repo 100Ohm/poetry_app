@@ -11,6 +11,15 @@
         <item name="toolbarStyle">@style/Theme.Toolbar.App.Style</item>
     </style>
 
+    <style name="AppTheme.Normal" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Toolbar风格 -->
+        <item name="toolbarStyle">@style/Theme.Toolbar.App.Style</item>
+    </style>
+
     <!--=============闪屏页相关主题============-->
     <!--全屏主题-->
     <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">

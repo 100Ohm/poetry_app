@@ -49,7 +49,11 @@
             android:singleLine="false"
             android:layout_marginBottom="5dp"
             android:lineSpacingExtra="@dimen/lineSpacingExtra"
-            android:text="此诗描绘山间春夜中幽静而美丽的景色，侧重于表现夜间春山的宁静幽美。"/>
+            android:text="此诗描绘山间春夜中幽静而美丽的景色，侧重于表现夜间春山的宁静幽美。"
+            android:enabled="true"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
 
         <LinearLayout
             android:id="@+id/comment_quote_layout"
@@ -79,7 +83,11 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="人闲桂花落\n夜静春山空\n月出惊山鸟\n时鸣春涧中"
-                    android:lineSpacingExtra="@dimen/lineSpacingExtra" />
+                    android:lineSpacingExtra="@dimen/lineSpacingExtra"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -89,7 +97,11 @@
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingBottom="10dp"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -193,7 +205,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="全诗紧扣一“静”字着笔，极似一幅风景写生画。"/>
+                    android:text="全诗紧扣一“静”字着笔，极似一幅风景写生画。"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,7 +225,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="牛逼"/>
+                    android:text="牛逼"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -225,7 +245,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="你们也太强了"/>
+                    android:text="你们也太强了"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
