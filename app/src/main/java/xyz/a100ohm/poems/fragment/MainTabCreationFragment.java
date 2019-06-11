@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.a100ohm.poems.R;
-import xyz.a100ohm.poems.adapterandview.CommentAdapter;
+import xyz.a100ohm.poems.adapterandview.PoetryCommentAdapter;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -29,11 +29,11 @@ public class MainTabCreationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_tab_creation, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_creation );
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        CommentAdapter adapter = new CommentAdapter(8);
-        recyclerView.setAdapter(adapter);
+//        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_creation );
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        PoetryCommentAdapter adapter = new PoetryCommentAdapter(8);
+//        recyclerView.setAdapter(adapter);
 
         return view;
     }

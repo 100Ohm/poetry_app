@@ -23,7 +23,7 @@ import java.util.List;
 import xyz.a100ohm.poems.R;
 import xyz.a100ohm.poems.mvp.presenter.presenterinterface.PresenterEveryDayInterface;
 import xyz.a100ohm.poems.utils.L;
-import xyz.a100ohm.poems.mvp.viewinterface.ViewEveryDayInterface;
+import xyz.a100ohm.poems.mvp.view.ViewEveryDayInterface;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -325,7 +325,6 @@ public class PoetryCardView extends FrameLayout implements ViewEveryDayInterface
                     PoetryCardView.this.removeViewAt(2);
 
                     View child = View.inflate(PoetryCardView.this.getContext(), R.layout.cardview_poetry, null);
-                    child.setTag("5b8b9572e116fb3714e6fa3c");
 
                     if(presenter != null)//如果Presenter不为null，则申请刷新数据
                         presenter.requestReflashCard(child);

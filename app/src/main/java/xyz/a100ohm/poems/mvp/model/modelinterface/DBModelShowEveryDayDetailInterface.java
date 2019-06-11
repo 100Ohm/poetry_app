@@ -13,7 +13,7 @@ import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetrySentence;
  * @version v1.0
  * @update [1][2019/6/10] [一百欧姆][创建文件]
  */
-public interface ModelShowEveryDayDetailInterface {
+public interface DBModelShowEveryDayDetailInterface {
     interface DetailCallback {
         void onFoundData(RealmResults<DBPoetrySentence> list);
     }

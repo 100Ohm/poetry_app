@@ -32,7 +32,7 @@
         android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/comment_name"
+            android:id="@+id/comment_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -45,7 +45,7 @@
             android:id="@+id/comment_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/comment_name"
+            android:layout_below="@id/comment_username"
             android:singleLine="false"
             android:layout_marginBottom="5dp"
             android:lineSpacingExtra="@dimen/lineSpacingExtra"
@@ -89,6 +89,7 @@
                     android:focusable="true"
                     android:longClickable="true"/>
                 <TextView
+                    android:id="@+id/comment_title_and_author"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -114,6 +115,7 @@
             android:orientation="horizontal">
             <!--时间 来源-->
             <TextView
+                android:id="@+id/comment_time_and_source"
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
@@ -133,6 +135,7 @@
                     android:src="@drawable/ic_eye_16dp"
                     android:tint="@color/colorQuoteLines"/>
                 <TextView
+                    android:id="@+id/comment_views"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,6 +156,7 @@
                     android:src="@drawable/ic_textsms_16dp"
                     android:tint="@color/colorQuoteLines"/>
                 <TextView
+                    android:id="@+id/comment_comment_num"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -173,6 +177,7 @@
                     android:src="@drawable/ic_thumb_up_16dp"
                     android:tint="@color/colorQuoteLines"/>
                 <TextView
+                    android:id="@+id/comment_likes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -183,6 +188,7 @@
         </LinearLayout>
         <!--评论-->
         <LinearLayout
+            android:id="@+id/comment_comment_main_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -191,6 +197,7 @@
             android:orientation="vertical"
             android:layout_below="@id/comment_time_view_com_up">
             <LinearLayout
+                android:id="@+id/comment_comment_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -198,11 +205,13 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp">
                 <TextView
+                    android:id="@+id/comment_comment_username1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:text="用户1："/>
                 <TextView
+                    android:id="@+id/comment_comment_text1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="全诗紧扣一“静”字着笔，极似一幅风景写生画。"
@@ -212,17 +221,20 @@
                     android:longClickable="true"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/comment_comment_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp">
                 <TextView
+                    android:id="@+id/comment_comment_username2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:text="用户2："/>
                 <TextView
+                    android:id="@+id/comment_comment_text2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="牛逼"
@@ -232,17 +244,20 @@
                     android:longClickable="true"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/comment_comment_layout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp">
                 <TextView
+                    android:id="@+id/comment_comment_username3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:text="用户3："/>
                 <TextView
+                    android:id="@+id/comment_comment_text3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="你们也太强了"

@@ -10,12 +10,12 @@ import com.jinrishici.sdk.android.listener.JinrishiciCallback;
 import com.jinrishici.sdk.android.model.JinrishiciRuntimeException;
 import com.jinrishici.sdk.android.model.PoetySentence;
 
-import xyz.a100ohm.poems.mvp.model.AppModel;
+import xyz.a100ohm.poems.mvp.model.DBModel;
 import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetrySentence;
-import xyz.a100ohm.poems.mvp.model.modelinterface.ModelEveryDayInterface;
+import xyz.a100ohm.poems.mvp.model.modelinterface.DBModelEveryDayInterface;
 import xyz.a100ohm.poems.mvp.presenter.presenterinterface.PresenterEveryDayInterface;
 import xyz.a100ohm.poems.utils.L;
-import xyz.a100ohm.poems.mvp.viewinterface.ViewEveryDayInterface;
+import xyz.a100ohm.poems.mvp.view.ViewEveryDayInterface;
 import xyz.a100ohm.poems.utils.PoetryUtils;
 
 /**
@@ -26,7 +26,8 @@ import xyz.a100ohm.poems.utils.PoetryUtils;
  *
  * @author <a href="mail to: 100ohmYeah@gmail.com" rel="nofollow">一百欧姆</a>
  * @version v1.0
- * @update [1][2019/5/30] [一百欧姆][每日诗句的Presenter，我觉得应该不用写model了吧，毕竟是直接用SDK的]
+ * @update [1][2019/5/30] [一百欧姆][每日诗句的Presenter,数据请求的model使用DBModel,
+ * 网络请求方面的model没有自己写,直接用今日诗词的sdk完成]
  */
 public class EveryDayPresenter implements PresenterEveryDayInterface {
 
@@ -47,9 +48,9 @@ public class EveryDayPresenter implements PresenterEveryDayInterface {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void requestReflashCard(final View cardview) {
-        if(isFirst) {
+        if(isFirst) {//如果是第一次,直接查询本地数据库(快一点,而且本地支持一次查三句
             isFirst = false;
-            AppModel.getInstance().requestPoetrySentence(3, new ModelEveryDayInterface.PoetrySentenceCallBack() {
+            DBModel.getInstance().requestPoetrySentence(3, new DBModelEveryDayInterface.PoetrySentenceCallBack() {
                 @Override
                 public void onFoundData(DBPoetrySentence[] sentences) {
                     L.d("本地查询成功，第一句："+sentences[0].getContent()+" id: "+sentences[0].getJrscId());
@@ -73,7 +74,7 @@ public class EveryDayPresenter implements PresenterEveryDayInterface {
         } else {
             isJRSCReturn = false;
             JinrishiciClient client = JinrishiciClient.getInstance();
-            handler.postDelayed(new Runnable() {//如果400毫秒后还没有返回，就直接在本地显示
+            handler.postDelayed(new Runnable() {//如果400毫秒后还没有返回，就直接在本地找一句
                 @Override
                 public void run() {
                     if(!isJRSCReturn) {
@@ -102,7 +103,7 @@ public class EveryDayPresenter implements PresenterEveryDayInterface {
                             new String[]{poetySentence.getData().getId()});
                     isJRSCReturn = true;
                     //缓存到本地数据库
-                    AppModel.getInstance().savePoetrySentence(poetySentence);
+                    DBModel.getInstance().savePoetrySentence(poetySentence);
                 }
 
                 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -121,7 +122,7 @@ public class EveryDayPresenter implements PresenterEveryDayInterface {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void getOnePoetrySentenceFromModel(final View cardview){
-        AppModel.getInstance().requestPoetrySentence(1, new ModelEveryDayInterface.PoetrySentenceCallBack() {
+        DBModel.getInstance().requestPoetrySentence(1, new DBModelEveryDayInterface.PoetrySentenceCallBack() {
             @Override
             public void onFoundData(DBPoetrySentence[] sentences) {
                 L.d("本地查询成功，"+sentences[0].getContent());

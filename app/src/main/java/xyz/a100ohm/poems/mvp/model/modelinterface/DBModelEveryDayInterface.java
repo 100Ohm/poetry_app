@@ -14,7 +14,7 @@ import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetrySentence;
  * @version v1.0
  * @update [1][2019/6/9] [一百欧姆][创建文件]
  */
-public interface ModelEveryDayInterface {
+public interface DBModelEveryDayInterface {
     /**
      * 后台开一个线程存储今日诗词的一首诗
      * @param poetySentence 今日诗词的一首诗

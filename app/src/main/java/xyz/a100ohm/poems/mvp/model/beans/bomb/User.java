@@ -2,6 +2,7 @@ package xyz.a100ohm.poems.mvp.model.beans.bomb;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.datatype.BmobRelation;
 
 /**
  * <p>项目名称: poetry_app </p>
@@ -14,10 +15,11 @@ import cn.bmob.v3.datatype.BmobFile;
  * @update [1][2019/5/30] [一百欧姆][创建文件，是bmob的用户类，也存储到本地数据库]
  */
 
-public class User extends BmobUser{
+public class User extends BmobUser {
 
     private BmobFile image;//头像
     private String description;//个性签名
+    private BmobRelation sessions;//持有的对话
 
 
     public BmobFile getImage() {
@@ -34,5 +36,13 @@ public class User extends BmobUser{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public BmobRelation getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(BmobRelation sessions) {
+        this.sessions = sessions;
     }
 }

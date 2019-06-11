@@ -13,8 +13,8 @@ import io.realm.RealmResults;
 import xyz.a100ohm.poems.application.MyAppliction;
 import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetrySentence;
 import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetryTranslate;
-import xyz.a100ohm.poems.mvp.model.modelinterface.ModelEveryDayInterface;
-import xyz.a100ohm.poems.mvp.model.modelinterface.ModelShowEveryDayDetailInterface;
+import xyz.a100ohm.poems.mvp.model.modelinterface.DBModelEveryDayInterface;
+import xyz.a100ohm.poems.mvp.model.modelinterface.DBModelShowEveryDayDetailInterface;
 import xyz.a100ohm.poems.utils.L;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
 
@@ -28,11 +28,11 @@ import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
  * @version v1.0
  * @update [1][2019/6/9] [一百欧姆][整个应用程序的Model,处理关于本地数据存储的问题]
  */
-public class AppModel implements ModelEveryDayInterface, ModelShowEveryDayDetailInterface {
-    private static AppModel appModel;
+public class DBModel implements DBModelEveryDayInterface, DBModelShowEveryDayDetailInterface {
+    private static DBModel appModel;
     private Realm realm;
 
-    public AppModel() {
+    public DBModel() {
         realm = Realm.getDefaultInstance();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
@@ -76,15 +76,16 @@ public class AppModel implements ModelEveryDayInterface, ModelShowEveryDayDetail
         });
     }
 
-    public static AppModel getInstance() {
+    public static DBModel getInstance() {
         if(appModel == null)
-            synchronized (AppModel.class) {
+            synchronized (DBModel.class) {
                 if (appModel == null)
-                    appModel = new AppModel();
+                    appModel = new DBModel();
             }
         return appModel;
     }
 
+//    ==========================每日一句==============================
     /**
      * {@inheritDoc}
      * @param poetySentence 今日诗词的一首诗
@@ -201,6 +202,13 @@ public class AppModel implements ModelEveryDayInterface, ModelShowEveryDayDetail
         }
     }
 
+    //    ==========================每日一句详情==============================
+
+    /**
+     * {@inheritDoc}
+     * @param jrscId
+     * @param callback
+     */
     @Override
     public void requestPoetryDetail(final String jrscId, final DetailCallback callback) {
         realm.executeTransactionAsync(new Realm.Transaction() {
@@ -212,4 +220,7 @@ public class AppModel implements ModelEveryDayInterface, ModelShowEveryDayDetail
             }
         });
     }
+
+
+
 }

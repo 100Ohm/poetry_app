@@ -1,4 +1,4 @@
-package xyz.a100ohm.poems.mvp.viewinterface;
+package xyz.a100ohm.poems.mvp.view;
 
 /**
  * <p>项目名称: poetry_app </p>

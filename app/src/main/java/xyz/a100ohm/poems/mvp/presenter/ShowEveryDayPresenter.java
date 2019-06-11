@@ -2,12 +2,12 @@ package xyz.a100ohm.poems.mvp.presenter;
 
 import io.realm.RealmList;
 import io.realm.RealmResults;
-import xyz.a100ohm.poems.mvp.model.AppModel;
+import xyz.a100ohm.poems.mvp.model.DBModel;
 import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetrySentence;
 import xyz.a100ohm.poems.mvp.model.beans.localdb.DBPoetryTranslate;
-import xyz.a100ohm.poems.mvp.model.modelinterface.ModelShowEveryDayDetailInterface;
+import xyz.a100ohm.poems.mvp.model.modelinterface.DBModelShowEveryDayDetailInterface;
 import xyz.a100ohm.poems.mvp.presenter.presenterinterface.PresenterShowEveryDayDetailInterface;
-import xyz.a100ohm.poems.mvp.viewinterface.ViewShowEveryDayDetailInterface;
+import xyz.a100ohm.poems.mvp.view.ViewShowEveryDayDetailInterface;
 import xyz.a100ohm.poems.utils.PoetryUtils;
 
 /**
@@ -30,7 +30,7 @@ public class ShowEveryDayPresenter implements PresenterShowEveryDayDetailInterfa
 
     @Override
     public void requestEveryDayDetail(final String jrscId) {
-        AppModel.getInstance().requestPoetryDetail(jrscId, new ModelShowEveryDayDetailInterface.DetailCallback() {
+        DBModel.getInstance().requestPoetryDetail(jrscId, new DBModelShowEveryDayDetailInterface.DetailCallback() {
             @Override
             public void onFoundData(RealmResults<DBPoetrySentence> list) {
                 if(list.size() == 0) {

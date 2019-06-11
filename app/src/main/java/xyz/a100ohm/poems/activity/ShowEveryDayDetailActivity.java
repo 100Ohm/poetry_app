@@ -11,7 +11,7 @@ import android.widget.TextView;
 import xyz.a100ohm.poems.R;
 import xyz.a100ohm.poems.mvp.presenter.ShowEveryDayPresenter;
 import xyz.a100ohm.poems.mvp.presenter.presenterinterface.PresenterShowEveryDayDetailInterface;
-import xyz.a100ohm.poems.mvp.viewinterface.ViewShowEveryDayDetailInterface;
+import xyz.a100ohm.poems.mvp.view.ViewShowEveryDayDetailInterface;
 
 /**
  * <p>项目名称: poetry_app </p>

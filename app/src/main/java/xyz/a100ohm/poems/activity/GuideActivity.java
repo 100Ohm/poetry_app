@@ -12,7 +12,10 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobUser;
 import xyz.a100ohm.poems.R;
+import xyz.a100ohm.poems.mvp.model.beans.bomb.User;
+
 /**
  * <p>项目名称: poetry_app </p>
  * <p>文件名称: null.java </p>
@@ -65,9 +68,15 @@ public class GuideActivity extends BaseActivity {
         view3.findViewById(R.id.enter_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //打开登陆页面
-                LoginActivity.startActivity(GuideActivity.this);
-                finish();
+                User user = BmobUser.getCurrentUser(GuideActivity.this, User.class);
+                if(user != null){
+                    //设置显示用户等
+                    finish();
+                } else {
+                    //打开登陆页面
+                    LoginActivity.startActivity(GuideActivity.this);
+                    finish();
+                }
             }
         });
 

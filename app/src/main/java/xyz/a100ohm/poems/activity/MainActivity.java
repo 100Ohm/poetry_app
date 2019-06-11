@@ -52,9 +52,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private TextView userNameTextView;
     private TextView emailTextView;
 
-    private Realm realm;
-
-
+    User user;
 
     public static void startActivity(Context context) {
         context.startActivity(new Intent(context, MainActivity.class));
@@ -101,14 +99,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             transaction.commit();
         }
 
-        User user = BmobUser.getCurrentUser(this, User.class);
+        user = BmobUser.getCurrentUser(this, User.class);
         if(user != null){
             //设置显示用户等
             displayUser(user);
         }
-        //获取realm对象
-        realm = Realm.getDefaultInstance();
-        L.e("从MainActivity中获取的realm对象"+realm);
 
     }
 
@@ -160,7 +155,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_person://个人中心
                 //replaceFragment(new PersonalCenterFragment());
-                PersonalCenterActivity.startActivity(this);
+                PersonalCenterActivity.startActivity(this, user.getObjectId());
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_my_poetry_anthology:

@@ -1,4 +1,4 @@
-package xyz.a100ohm.poems.mvp.viewinterface;
+package xyz.a100ohm.poems.mvp.view;
 
 import android.view.View;
 

@@ -19,7 +19,7 @@ import android.view.animation.DecelerateInterpolator;
 
 import xyz.a100ohm.poems.R;
 import xyz.a100ohm.poems.utils.SharedPreferencesUtils;
-import xyz.a100ohm.poems.adapterandview.CommentAdapter;
+import xyz.a100ohm.poems.adapterandview.PoetryCommentAdapter;
 import xyz.a100ohm.poems.adapterandview.PoetryBookAdapter;
 
 /**
@@ -43,8 +43,15 @@ public class PersonalCenterActivity extends AppCompatActivity {
     //标题栏图片的viewgroup
     private View imageViewGroup;
 
-    public static void startActivity(Context context) {
-        context.startActivity(new Intent(context, PersonalCenterActivity.class));
+    /**
+     * 启动这个Activity
+     * @param context 上下文
+     * @param userId 要显示的用户的id
+     */
+    public static void startActivity(Context context, String userId) {
+        Intent intent = new Intent(context, PersonalCenterActivity.class);
+        intent.putExtra("id", userId);
+        context.startActivity(intent);
     }
 
     @Override
@@ -65,11 +72,11 @@ public class PersonalCenterActivity extends AppCompatActivity {
         r.setAdapter(ad);
 
         //个人动态recyclerView
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.person_trends_recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        CommentAdapter adapter = new CommentAdapter(8);
-        recyclerView.setAdapter(adapter);
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.person_trends_recycler_view);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        PoetryCommentAdapter adapter = new PoetryCommentAdapter(8);
+//        recyclerView.setAdapter(adapter);
 
         //日间夜间模式初始设置
         boolean night = SharedPreferencesUtils.getBoolean(getApplicationContext(), "NightMode", false);
