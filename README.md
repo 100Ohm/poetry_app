@@ -44,21 +44,21 @@ Android Supportv7库使用（界面）
 
 # 界面预览
 
-![image_day](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_day.png)
+![image_day](image_day.png)
 
-![image_message_list](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_message_list.png)
+![image_message_list](image_message_list.png)
 
-![image_night](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_night.png)
+![image_night](image_night.png)
 
-![image_personal](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_personal.jpg)
+![image_personal](image_personal.jpg)
 
-![image_personal_book](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_personal_book.jpg)
+![image_personal_book](image_personal_book.jpg)
 
-![image_poetry_card](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_poetry_card.png)
+![image_poetry_card](image_poetry_card.png)
 
-![image_poetry_comment](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_poetry_comment.png)
+![image_poetry_comment](image_poetry_comment.png)
 
-![image_poetry_lib1](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_poetry_lib1.png)
+![image_poetry_lib1](image_poetry_lib1.png)
 
-![image_poetry_lib2](C:\Users\ohm\AndroidStudioProjects\poetry_app\image_poetry_lib2.png)
+![image_poetry_lib2](image_poetry_lib2.png)
 
